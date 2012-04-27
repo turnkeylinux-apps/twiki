@@ -15,3 +15,5 @@ liblocale-maketext-lexicon-perl
 libtext-diff-perl
 liburi-perl
 rcs
+zip
+unzip
