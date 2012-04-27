@@ -1,0 +1,26 @@
+#!/bin/sh -ex
+
+SRC=/usr/local/src
+WEBROOT=/var/www/twiki
+
+# unpack twiki, overlay twiki configuration
+tar -zxf $SRC/TWiki-*.tgz.tar -C $(dirname $WEBROOT)
+cp -TdR $SRC/twiki.overlay $WEBROOT
+
+chown -R www-data:www-data $WEBROOT
+
+# cron jobs
+echo "
+0 * * * * (cd $WEBROOT/bin && ./statistics >/dev/null 2>&1)
+0 0 * * * (cd $WEBROOT/bin && $WEBROOT/tools/tick_twiki.pl)
+0,15,30,45 * * * * (cd $WEBROOT/bin && $WEBROOT/tools/mailnotify -q)
+" | crontab -u www-data -
+
+# disable turnkey-credit in popup
+CSS=$WEBROOT/pub/TWiki/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/skins/default/dialog.css
+echo "#turnkey-credit { display: none; }" >> $CSS
+
+# apache configuration
+a2dissite default
+a2ensite twiki
+

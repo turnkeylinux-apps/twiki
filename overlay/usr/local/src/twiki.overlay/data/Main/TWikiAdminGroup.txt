@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="TWikiContributor" date="1273956256" format="1.1" version="1"}%
+%META:TOPICPARENT{name="TWikiGroups"}%
+---+ TWiki Administrator Group
+
+   * Member list:
+      * Set GROUP = TWikiAdminUser
+   * Persons/group who can change the list:
+      * Set ALLOWTOPICCHANGE = TWikiAdminGroup
+
+__Related topics:__ %WIKIUSERSTOPIC%, TWikiGroups, %TWIKIWEB%.TWikiAccessControl

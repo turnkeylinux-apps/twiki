@@ -1,0 +1,17 @@
+#include <turnkey/base>
+
+apache2-mpm-worker
+webmin-apache
+
+postfix
+webmin-postfix
+
+libalgorithm-diff-perl
+libcgi-session-perl
+libdigest-sha1-perl
+liberror-perl
+libhtml-parser-perl
+liblocale-maketext-lexicon-perl
+libtext-diff-perl
+liburi-perl
+rcs

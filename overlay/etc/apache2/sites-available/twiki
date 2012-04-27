@@ -1,0 +1,137 @@
+NameVirtualHost *:80
+NameVirtualHost *:443
+
+# Block evil browser agents trying the impossible task of mirroring twiki
+BrowserMatchNoCase ^Accoona blockAccess
+BrowserMatchNoCase ^ActiveAgent blockAccess
+BrowserMatchNoCase ^Attache blockAccess
+BrowserMatchNoCase BecomeBot blockAccess
+BrowserMatchNoCase ^bot blockAccess
+BrowserMatchNoCase Charlotte/ blockAccess
+BrowserMatchNoCase ^ConveraCrawler blockAccess
+BrowserMatchNoCase ^CrownPeak-HttpAgent blockAccess
+BrowserMatchNoCase ^EmailCollector blockAccess
+BrowserMatchNoCase ^EmailSiphon blockAccess
+BrowserMatchNoCase ^e-SocietyRobot blockAccess
+BrowserMatchNoCase ^Exabot blockAccess
+BrowserMatchNoCase ^FAST blockAccess
+BrowserMatchNoCase ^FDM blockAccess
+BrowserMatchNoCase ^GetRight/6.0a blockAccess
+BrowserMatchNoCase ^GetWebPics blockAccess
+BrowserMatchNoCase ^Gigabot blockAccess
+BrowserMatchNoCase ^gonzo1 blockAccess
+BrowserMatchNoCase ^Google\sSpider blockAccess
+BrowserMatchNoCase ^ichiro blockAccess
+BrowserMatchNoCase ^ie_crawler blockAccess
+BrowserMatchNoCase ^iGetter blockAccess
+BrowserMatchNoCase ^IRLbot blockAccess
+BrowserMatchNoCase Jakarta blockAccess
+BrowserMatchNoCase ^Java blockAccess
+BrowserMatchNoCase ^KrakSpider blockAccess
+BrowserMatchNoCase ^larbin blockAccess
+BrowserMatchNoCase ^LeechGet blockAccess
+BrowserMatchNoCase ^LinkWalker blockAccess
+BrowserMatchNoCase ^Lsearch blockAccess
+BrowserMatchNoCase ^Microsoft blockAccess
+BrowserMatchNoCase ^MJ12bot blockAccess
+BrowserMatchNoCase MSIECrawler blockAccess
+BrowserMatchNoCase ^MSRBOT blockAccess
+BrowserMatchNoCase ^noxtrumbot blockAccess
+BrowserMatchNoCase ^NutchCVS blockAccess
+BrowserMatchNoCase ^RealDownload blockAccess
+BrowserMatchNoCase ^Rome blockAccess
+BrowserMatchNoCase ^Roverbot blockAccess
+BrowserMatchNoCase ^schibstedsokbot blockAccess
+BrowserMatchNoCase ^Seekbot blockAccess
+BrowserMatchNoCase ^SiteSnagger blockAccess
+BrowserMatchNoCase ^SiteSucker blockAccess
+BrowserMatchNoCase ^Snapbot blockAccess
+BrowserMatchNoCase ^sogou blockAccess
+BrowserMatchNoCase ^SpiderKU blockAccess
+BrowserMatchNoCase ^SpiderMan blockAccess
+BrowserMatchNoCase ^Squid blockAccess
+BrowserMatchNoCase ^Teleport blockAccess
+BrowserMatchNoCase ^User-Agent\: blockAccess
+BrowserMatchNoCase VoilaBot blockAccess
+BrowserMatchNoCase ^voyager blockAccess
+BrowserMatchNoCase ^W3C blockAccess
+BrowserMatchNoCase ^w3search blockAccess
+BrowserMatchNoCase ^Web\sDownloader blockAccess
+BrowserMatchNoCase ^WebCopier blockAccess
+BrowserMatchNoCase ^WebDevil blockAccess
+BrowserMatchNoCase ^WebSec blockAccess
+BrowserMatchNoCase ^WebVac blockAccess
+BrowserMatchNoCase ^Webwhacker blockAccess
+BrowserMatchNoCase ^Webzip blockAccess
+BrowserMatchNoCase ^Wells blockAccess
+BrowserMatchNoCase ^WhoWhere blockAccess
+BrowserMatchNoCase www\.netforex\.org blockAccess
+BrowserMatchNoCase ^WX_mail blockAccess
+BrowserMatchNoCase ^yacybot blockAccess
+BrowserMatchNoCase ^ZIBB blockAccess
+BrowserMatchNoCase ^$ blockAccess
+
+<VirtualHost *:80>
+    UseCanonicalName Off
+    ServerAdmin  webmaster@localhost
+</VirtualHost>
+
+<VirtualHost *:443>
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/cert.pem
+    ServerAdmin  webmaster@localhost
+</VirtualHost>
+
+RedirectMatch ^/$ /bin/view
+
+Alias /pub "/var/www/twiki/pub"
+
+ScriptAlias /bin/ "/var/www/twiki/bin/"
+
+<Directory /var/www/twiki/bin/twiki/> 
+    BrowserMatchNoCase ^$ anonymous_spider
+
+    # Now set default access rights.
+    Order Allow,Deny
+    Allow from all
+    Deny from env=blockAccess
+
+    AuthUserFile /var/www/twiki/data/.htpasswd
+    AuthName 'TWiki'
+    AuthType Basic
+
+    # File to return on access control error (e.g. wrong password)
+    ErrorDocument 401 /bin/view/TWiki/TWikiRegistration
+
+    Options +ExecCGI +FollowSymLinks
+    SetHandler cgi-script
+    AllowOverride all
+    Allow from all
+	
+    <FilesMatch "^(configure)$">
+        Order Deny,Allow
+        Deny from all
+        Allow from 127.0.0.1
+        Require user AdminUser
+        Satisfy Any
+    </FilesMatch>
+
+    <FilesMatch "(attach|edit|manage|rename|save|upload|mail|logon|.*auth).*">
+        Require valid-user
+    </FilesMatch>
+</Directory>
+
+<Directory "/var/www/twiki/pub">
+    Options None
+    AllowOverride None
+    Order Allow,Deny
+    Allow from all
+    Deny from env=blockAccess
+    AddType text/plain .shtml .php .php3 .phtml .phtm .pl .py .cgi
+</Directory>
+
+<Directory "/var/www/twiki/pub/_work_areas">
+    Deny from all
+</Directory>
+
+

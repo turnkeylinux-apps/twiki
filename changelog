@@ -1,0 +1,63 @@
+turnkey-twiki-11.1 (1) turnkey; urgency=low
+
+  * Upgraded to latest upstream version (installed from upstream tarball,
+    package is no longer available).
+
+  * Set TWiki admin email and password on firstboot (convenience, security).
+
+  * Set postfix MTA myhostname to localhost (bugfix).
+
+  * Major component versions:
+
+    twiki           5.0.1 (upstream tarball)
+    apache2         2.2.14-5ubuntu8.4
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Sun, 19 Dec 2010 15:01:05 +0200
+
+turnkey-twiki-2009.10 (2) hardy; urgency=low
+
+  * Installed all security updates (see manifest for package versions).
+  
+  * Install security updates on firstboot (except when running live).
+
+  * Bugfix: TWikiGuest -> AdminUser in apache.conf for config access.
+  
+  * Trick webmin into not checking for upgrades (managed by apt).
+  
+  * Included latest version of inithooks and updated scripts.
+  
+  * Included wget as per common request.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Mon, 29 Mar 2010 09:02:11 +0200
+
+turnkey-twiki-2009.10 (1) hardy; urgency=low
+
+  * Initial public release of TurnKey TWiki.
+
+  * SSL support out of the box.
+
+  * TWiki configurations:
+
+    - Preconfigured mail settings.
+    - Configured cron jobs (daily maintenance, hourly stats, 15min notifications).
+    - Simplified Apache login dialog text (didn't make sense).
+    - Pinned twiki to update directly from debian (security).
+
+  * Includes postfix MTA (bound to localhost) to allow sending of email from
+    TWiki (e.g., password recovery). Also includes webmin-postfix module
+    for convenience.
+
+  * Regenerates all secrets during installation / firstboot (security).
+
+  * Major component versions:
+
+    twiki               1:4.1.2-3.1ubuntu1
+    apache2         	2.2.8-1ubuntu0.11
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Tue, 29 Sep 2009 15:39:41 +0200
