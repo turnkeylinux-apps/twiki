@@ -4,7 +4,7 @@ SRC=/usr/local/src
 WEBROOT=/var/www/twiki
 
 # unpack twiki, overlay twiki configuration
-tar -zxf $SRC/TWiki-*.tgz.tar -C $(dirname $WEBROOT)
+tar -zxf $SRC/TWiki-*.tgz -C $(dirname $WEBROOT)
 cp -TdR $SRC/twiki.overlay $WEBROOT
 
 chown -R www-data:www-data $WEBROOT
@@ -24,3 +24,6 @@ echo "#turnkey-credit { display: none; }" >> $CSS
 a2dissite default
 a2ensite twiki
 
+# cleanup
+rm -rf $SRC/Twiki*
+rm -rf $SRC/twiki*
