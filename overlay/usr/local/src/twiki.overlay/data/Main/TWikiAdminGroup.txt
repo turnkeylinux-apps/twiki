@@ -3,7 +3,7 @@
 ---+ TWiki Administrator Group
 
    * Member list:
-      * Set GROUP = TWikiAdminUser
+      * Set GROUP = TWikiAdminUser AdminUser
    * Persons/group who can change the list:
       * Set ALLOWTOPICCHANGE = TWikiAdminGroup
 
