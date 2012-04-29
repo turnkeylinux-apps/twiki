@@ -7,6 +7,9 @@ WEBROOT=/var/www/twiki
 tar -zxf $SRC/TWiki-*.tgz -C $(dirname $WEBROOT)
 cp -TdR $SRC/twiki.overlay $WEBROOT
 
+# workaround insecure dependency in require while running with -T switch
+sed -i "s|\-wT|-w|" $WEBROOT/bin/configure
+
 chown -R www-data:www-data $WEBROOT
 
 # cron jobs
