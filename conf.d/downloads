@@ -11,9 +11,4 @@ VERSION="5.1.4"
 URL="http://sourceforge.net/projects/twiki/files/TWiki%20for%20all%20Platforms"
 
 dl $URL/TWiki-$VERSION/TWiki-$VERSION.tgz $SRC
-dl $URL/TWiki-$VERSION/TWiki-$VERSION.md5 $SRC
-
-cd $SRC
-md5sum -c TWiki-$VERSION.md5
-rm TWiki-$VERSION.md5
 
