@@ -2,7 +2,7 @@ turnkey-twiki-12.1 (1) turnkey; urgency=low
 
   * Upgraded to latest version of TWiki.
 
-  * Hardcoded component versions:
+  * Upstream source component versions:
 
     twiki           5.1.4
 
