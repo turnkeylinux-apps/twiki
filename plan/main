@@ -8,7 +8,6 @@ webmin-postfix
 
 libalgorithm-diff-perl
 libcgi-session-perl
-libdigest-sha1-perl
 liberror-perl
 libhtml-parser-perl
 liblocale-maketext-lexicon-perl
