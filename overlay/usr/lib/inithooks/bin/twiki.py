@@ -52,7 +52,7 @@ def main():
             "Enter email address for the TWiki 'AdminUser' account.",
             "admin@example.com")
 
-    output = getoutput("htpasswd -bnd foo %s" % password)
+    output = getoutput("htpasswd -bnd AdminUser %s" % password)
     hashpass = output.split(":")[1].strip()
 
     new = []
