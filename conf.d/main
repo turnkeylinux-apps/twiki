@@ -24,7 +24,7 @@ CSS=$WEBROOT/pub/TWiki/TinyMCEPlugin/tinymce/jscripts/tiny_mce/themes/advanced/s
 echo "#turnkey-credit { display: none; }" >> $CSS
 
 # apache configuration
-a2dissite default
+a2dissite 000-default
 a2ensite twiki
 
 # cleanup
