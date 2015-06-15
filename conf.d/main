@@ -25,6 +25,7 @@ echo "#turnkey-credit { display: none; }" >> $CSS
 
 # apache configuration
 a2dissite 000-default
+a2enmod cgid
 a2ensite twiki
 
 # cleanup
