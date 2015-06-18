@@ -7,7 +7,7 @@ dl() {
 
 SRC="/usr/local/src"
 
-VERSION="5.1.4"
+VERSION="6.0.1"
 URL="http://sourceforge.net/projects/twiki/files/TWiki%20for%20all%20Platforms"
 
 dl $URL/TWiki-$VERSION/TWiki-$VERSION.tgz $SRC

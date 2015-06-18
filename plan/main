@@ -14,6 +14,7 @@ liblocale-maketext-lexicon-perl
 libtext-diff-perl
 liburi-perl
 libwww-perl
+libcgi-pm-perl
 rcs
 zip
 unzip
