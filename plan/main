@@ -3,9 +3,6 @@
 apache2-mpm-worker
 webmin-apache
 
-postfix
-webmin-postfix
-
 libalgorithm-diff-perl
 libcgi-session-perl
 liberror-perl
