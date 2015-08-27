@@ -9,6 +9,7 @@ Option:
 
 import sys
 import getopt
+import inithooks_cache
 
 from executil import getoutput
 from dialog_wrapper import Dialog
@@ -51,6 +52,8 @@ def main():
             "TWiki Email",
             "Enter email address for the TWiki 'AdminUser' account.",
             "admin@example.com")
+
+    inithooks_cache.write('APP_EMAIL', email)
 
     output = getoutput("htpasswd -bnd AdminUser %s" % password)
     hashpass = output.split(":")[1].strip()
