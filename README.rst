@@ -30,4 +30,4 @@ Credentials *(passwords set at first boot)*
 -  TWiki: username **AdminUser**
 
 .. _TWiki: http://twiki.org
-.. _TurnKey Core: http://www.turnkeylinux.org/core
+.. _TurnKey Core: https://www.turnkeylinux.org/core
