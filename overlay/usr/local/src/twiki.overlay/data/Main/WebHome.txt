@@ -6,7 +6,7 @@
 
    * Log in as *AdminUser* and start your Wiki!
    * Manage the appliance with the [[https://%HTTP_HOST%:12320][Web based terminal shell]] or [[https://%HTTP_HOST%:12321][Web management interface]]
-   * Refer to the [[http://www.turnkeylinux.org/twiki][TurnKey TWiki release notes]]
+   * Refer to the [[https://www.turnkeylinux.org/twiki][TurnKey TWiki release notes]]
    * [[%TWIKIWEB%.TWikiRegistration][Registration]] - Register a new user
    * [[%TWIKIWEB%.WelcomeGuest][Introduction]] - Introduction for first time users
    * [[%TWIKIWEB%.TWikiTutorial][Tutorial]] - 20 minute TWiki tutorial
