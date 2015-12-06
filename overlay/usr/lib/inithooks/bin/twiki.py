@@ -55,7 +55,7 @@ def main():
 
     inithooks_cache.write('APP_EMAIL', email)
 
-    output = getoutput("htpasswd -bnd AdminUser %s" % password)
+    output = getoutput("htpasswd -bns AdminUser %s" % password)
     hashpass = output.split(":")[1].strip()
 
     new = []
@@ -71,6 +71,9 @@ def main():
             mailaddr = email
 
         new.append(":".join([username, password, mailaddr]))
+
+    if not new:
+        new.append(':'.join(['AdminUser', hashpass, email]))
 
     fh = file(htpasswd, "w")
     print >> fh, "\n".join(new)
