@@ -1,3 +1,12 @@
+turnkey-twiki-14.2 (1) turnkey; urgency=low
+
+  * Upgraded to latest version of TWiki (6.0.2) [#668].
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Anton Pyrogovskyi <anton@turnkeylinux.org>  Sat, 1 Sep 2016 18:24:28 +0200
+
 turnkey-twiki-14.1 (1) turnkey; urgency=low
 
   * Fixed Twiki inithook (#206)
