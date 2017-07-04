@@ -5,7 +5,7 @@ turnkey-twiki-14.2 (1) turnkey; urgency=low
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances. Here we only describe changes specific to this appliance.
 
- -- Anton Pyrogovskyi <anton@turnkeylinux.org>  Sat, 1 Sep 2016 18:24:28 +0200
+ -- Anton Pyrogovskyi <anton@turnkeylinux.org>  Sat, 1 Jul 2017 18:24:28 +0200
 
 turnkey-twiki-14.1 (1) turnkey; urgency=low
 
