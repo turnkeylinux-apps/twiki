@@ -1,7 +1,7 @@
 #include <turnkey/base>
 
-apache2-mpm-worker
 webmin-apache
+apache2
 
 libalgorithm-diff-perl
 libcgi-session-perl
